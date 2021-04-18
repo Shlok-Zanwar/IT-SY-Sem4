@@ -1,3 +1,4 @@
+print("\n")
 noOfStates = int(input("Enter number of states     : "))
 noOfSymbols = int(input("Enter length of Σ(symbols) : "))
 
@@ -204,3 +205,50 @@ if isDeadStatePresent(dfaDict, dfaStates):
 print("\n\nDFA Table :-")
 makeTable(dfaDict, dfaStates, symbols)
 
+
+# Sample Output
+'''
+
+
+Enter number of states     : 3
+Enter length of Σ(symbols) : 2
+
+Enter name of states.       
+
+    Enter name of state 1 : A
+    Enter name of state 2 : B
+    Enter name of state 3 : C
+
+    Enter symbol 1 : a
+    Enter symbol 2 : b
+
+    Enter states space seperated (Empty Enter if 𝛟)
+
+        Enter out states for 'a' from state 'A' : A B
+        Enter out states for 'b' from state 'A' : A
+
+        Enter out states for 'a' from state 'B' : C
+        Enter out states for 'b' from state 'B' : C
+
+        Enter out states for 'a' from state 'C' :
+        Enter out states for 'b' from state 'C' : 
+
+
+NFA Table :-
+               |       a       |       b
+ ---------------------------------------------
+A              |   ['A', 'B']  |     ['A']
+B              |     ['C']     |     ['C']
+C              |       []      |       []
+
+
+
+DFA Table :-
+               |       a       |       b
+ ---------------------------------------------
+A              |      A B      |       A
+A B            |     A B C     |      A C
+A B C          |     A B C     |      A C
+A C            |      A B      |       A
+
+'''
