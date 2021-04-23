@@ -58,6 +58,8 @@ for i in range(noOfSymbols):
     symbols.append(temp)
 # print(symbols)
 
+# Getting final states of nfa
+nfaFinalStates = input("\n    Enter final states of NFA (space seperated) : ").split(" ")
 
 # making nfa dict
 nfaDict = {}
@@ -206,6 +208,18 @@ print("\n\nDFA Table :-")
 makeTable(dfaDict, dfaStates, symbols)
 
 
+# print(nfaFinalStates)
+dfaFinalStates = ""
+
+for state in dfaStates:
+    stateSplit = state.split(" ")
+    for nfaState in nfaFinalStates:
+        if(nfaState in stateSplit):
+            dfaFinalStates += "'" + state + "' , "
+
+print("\n\n\nFinal states in NFA are : " + dfaFinalStates[:-2])
+
+
 # Sample Output
 '''
 
@@ -221,6 +235,8 @@ Enter name of states.
 
     Enter symbol 1 : a
     Enter symbol 2 : b
+
+    Enter final states of NFA (space seperated) : B
 
     Enter states space seperated (Empty Enter if 𝛟)
 
@@ -251,4 +267,6 @@ A B            |     A B C     |      A C
 A B C          |     A B C     |      A C
 A C            |      A B      |       A
 
+
+Final states in NFA are : 'A B C' , 'A C'
 '''
